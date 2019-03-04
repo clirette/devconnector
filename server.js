@@ -10,6 +10,8 @@ mongoose.connect('mongodb://localhost:27017/devconnector', {useNewUrlParser: tru
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.log(err));
 
+app.use(express.urlencoded({extended: false}));
+
 app.get('/', (req, res) => res.send('Hello'));
 
 app.use('/api/users', users);
