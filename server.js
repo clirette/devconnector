@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const logger = require('morgan');
 
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
@@ -9,6 +10,8 @@ const app = express();
 mongoose.connect('mongodb://localhost:27017/devconnector', {useNewUrlParser: true})
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.log(err));
+
+app.use(logger('dev'));
 
 app.use(express.urlencoded({extended: false}));
 
