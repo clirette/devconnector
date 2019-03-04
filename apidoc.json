@@ -1,0 +1,8 @@
+{
+  "name": "DevConnector API documentation",
+  "version": "1.0.0",
+  "description": "DevConnector API for adding/maintaining users, posts, and profiles.",
+  "template": {
+      "forceLanguage": "en"
+  }
+}

@@ -4,9 +4,14 @@ const router = require('express').Router();
 const User = require('../../models/User');
 
 /**
- * @route   GET api/users/test
- * @desc    Tests users route
- * @access  Public
+ * @api {get} /test Test the user route
+ * @apiGroup Users
+ * @apiSuccess {String} msg Success message
+ * @apiSuccessExample {json} Success
+ *    HTTP/1.1 200 OK
+ *    {
+ *        "msg": "Users Works"
+ *    }
  */
 router.get('/test', (req, res) => res.json({msg: 'Users Works'}));
 
