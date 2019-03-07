@@ -1,13 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('morgan');
+const mongoURI = require('./config/keys').mongoURI;
 
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 
 const app = express();
-mongoose.connect('mongodb://localhost:27017/devconnector', {useNewUrlParser: true})
+mongoose.connect(mongoURI, {useNewUrlParser: true})
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.log(err));
 
