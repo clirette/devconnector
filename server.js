@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('morgan');
+const passport = require('passport');
 const mongoURI = require('./config/keys').mongoURI;
 
 const users = require('./routes/api/users');
@@ -17,8 +18,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.get('/', (req, res) => res.send('Hello'));
+// Passport Middleware
+app.use(passport.initialize());
 
+// Passport Config
+require('./config/passport')(passport);
+
+// Routes
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);
