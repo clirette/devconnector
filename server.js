@@ -9,7 +9,7 @@ const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 
 const app = express();
-mongoose.connect(mongoURI, {useNewUrlParser: true})
+mongoose.connect(mongoURI, { useNewUrlParser: true, useFindAndModify: false })
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.log(err));
 
