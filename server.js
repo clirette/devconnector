@@ -2,14 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const passport = require('passport');
-const mongoURI = require('./config/keys').mongoURI;
+const keys = require('./config/keys');
 
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 
 const app = express();
-mongoose.connect(mongoURI, { useNewUrlParser: true, useFindAndModify: false })
+mongoose.connect(keys.localMongoURI, { useNewUrlParser: true, useFindAndModify: false })
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.log(err));
 
